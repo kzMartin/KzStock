@@ -9,12 +9,12 @@ import { NavmenuComponent } from './navmenu/navmenu.component';
 
 
 const routes: Routes = [
-  { path: 'Dashboard', component: LandingComponent },
-  { path: 'navMenu', component: NavmenuComponent },
-  { path: 'Reports', component: ReportsComponent },
-  { path: 'Products', component: ProductsComponent },
-  { path: 'Employees', component: EmployeesComponent },
-  { path: 'Information', component: InformationComponent },
+  { path: 'dashboard', component: LandingComponent },
+  { path: 'navmenu', component: NavmenuComponent },
+  { path: 'reports', component: ReportsComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'employees', component: EmployeesComponent },
+  { path: 'information', component: InformationComponent },
   { path: '**', component: LandingComponent },
   { path: '', component: LandingComponent },
 ];

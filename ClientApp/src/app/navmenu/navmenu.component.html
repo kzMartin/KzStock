@@ -1,3 +1,32 @@
-<p>
-  navmenu works!
-</p>
+<div class="navmenu">
+  <div class="navbar">
+    <div class="menu-item">
+      <a [routerLink]="['/dashboard']">
+        <fa name="home"></fa>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a [routerLink]="['/reports']">
+        <fa name="address-card"></fa>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a [routerLink]="['/products']">
+        <fa name="archive"></fa>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a [routerLink]="['/employees']">
+        <fa name="user"></fa>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a [routerLink]="['/information']">
+        <fa name="info-circle"></fa>
+      </a>
+    </div>
+  </div>
+  <div class="navbar-expander">
+    <fa name="plus-square"></fa>
+  </div>
+</div>
