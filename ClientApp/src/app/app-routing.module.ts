@@ -5,17 +5,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { ReportsComponent } from './reports/reports.component';
+import { NavmenuComponent } from './navmenu/navmenu.component';
 
 
 const routes: Routes = [
   { path: 'Dashboard', component: LandingComponent },
+  { path: 'navMenu', component: NavmenuComponent },
   { path: 'Reports', component: ReportsComponent },
   { path: 'Products', component: ProductsComponent },
   { path: 'Employees', component: EmployeesComponent },
   { path: 'Information', component: InformationComponent },
   { path: '**', component: LandingComponent },
-  { path: '', component: LandingComponent }
-
+  { path: '', component: LandingComponent },
 ];
 
 @NgModule({

@@ -19,12 +19,16 @@
     .landing-content{
       display: flex;
       justify-content: center;
-      margin-top: 20px;
+      height: 100%;
+      align-items: center;
 
       .item {
         margin-top: 20px;
         background: rgba(#397fc6, 0.10);
         min-width: 300px;
+        &:first-child {
+          margin-top: 0;
+        }
 
         button {
           display: flex;
@@ -34,13 +38,30 @@
           border: none;
           outline: none;
           cursor: pointer;
-          padding: 20px;
+          padding: 15px 20px;
           width: 100%;
           justify-content: space-between;
           transition: all 200ms ease;
 
           &:hover {
             background: rgba(#397fc6, 0.30);
+            color: #444444;
+          }
+        }
+      }
+    }
+  }
+
+  & ::ng-deep {
+    .landing-container {
+      .landing-content{
+        .item {
+          button {
+            fa {
+              i {
+                font-size: 25px;
+              }
+            }
           }
         }
       }
