@@ -1,0 +1,49 @@
+:host {
+  .landing-container {
+    display: flex;
+    height: 100vh;
+    background: #F9F9F9;
+    flex-direction: column;
+
+    .landing-header {
+      background: #397fc6;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+
+      h1 {
+        color: white;
+        text-align: center;
+      }
+    }
+    .landing-content{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+
+      .item {
+        margin-top: 20px;
+        background: rgba(#397fc6, 0.10);
+        min-width: 300px;
+
+        button {
+          display: flex;
+          background: transparent;
+          color: #7a7a7a;
+          font-size: 18px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 20px;
+          width: 100%;
+          justify-content: space-between;
+          transition: all 200ms ease;
+
+          &:hover {
+            background: rgba(#397fc6, 0.30);
+          }
+        }
+      }
+    }
+  }
+}
