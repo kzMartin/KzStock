@@ -1,8 +1,11 @@
+using AutoMapper;
+using KzStock.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,7 +24,8 @@ namespace KzStock
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+            services.AddDbContext<StockDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddAutoMapper();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
