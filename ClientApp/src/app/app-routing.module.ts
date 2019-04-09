@@ -7,16 +7,20 @@ import { LandingComponent } from './landing/landing.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 
-
 const routes: Routes = [
   { path: 'dashboard', component: LandingComponent },
-  { path: 'navmenu', component: NavmenuComponent },
-  { path: 'reports', component: ReportsComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'employees', component: EmployeesComponent },
-  { path: 'information', component: InformationComponent },
+  {
+    path: '',
+    component: NavmenuComponent,
+    children: [
+      { path: 'products', component: ProductsComponent },
+      { path: 'reports', component: ReportsComponent },
+      { path: 'employees', component: EmployeesComponent },
+      { path: 'information', component: InformationComponent }
+    ]
+  },
   { path: '**', component: LandingComponent },
-  { path: '', component: LandingComponent },
+  { path: '', component: LandingComponent }
 ];
 
 @NgModule({

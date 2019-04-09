@@ -1,32 +1,41 @@
 <div class="navmenu">
-  <div class="navbar">
+  <div class="navbar" [ngClass]="{ expand: isExpanded, contract: !isExpanded }">
     <div class="menu-item">
       <a [routerLink]="['/dashboard']">
         <fa name="home"></fa>
+        <span>Home</span>
       </a>
     </div>
     <div class="menu-item">
       <a [routerLink]="['/reports']">
         <fa name="address-card"></fa>
+        <span>Reports</span>
       </a>
     </div>
     <div class="menu-item">
       <a [routerLink]="['/products']">
         <fa name="archive"></fa>
+        <span>Products</span>
       </a>
     </div>
     <div class="menu-item">
-      <a [routerLink]="['/employees']">
+      <a [routerLink]="['/employees']"  matTooltip="Tooltip!">
         <fa name="user"></fa>
+        <span>Employees</span>
       </a>
     </div>
     <div class="menu-item">
       <a [routerLink]="['/information']">
         <fa name="info-circle"></fa>
+        <span>Information</span>
       </a>
     </div>
-  </div>
-  <div class="navbar-expander">
-    <fa name="plus-square"></fa>
+    <a class="navbar-expander" (click)="expand()">
+      <fa *ngIf="!isExpanded" name="angle-right"></fa>
+      <fa *ngIf="isExpanded" name="angle-left"></fa>
+    </a>
   </div>
 </div>
+
+<router-outlet></router-outlet>
+

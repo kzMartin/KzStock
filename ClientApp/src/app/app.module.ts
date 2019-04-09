@@ -20,7 +20,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     EmployeesComponent,
     InformationComponent,
     NavmenuComponent,
-
   ],
   imports: [
     BrowserModule,

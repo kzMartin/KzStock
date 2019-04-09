@@ -1,18 +1,74 @@
 :host {
+  display: flex;
+
   .navmenu {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     .navbar {
       height: 100vh;
       width: 70px;
+      padding: 0 20px;
+      position: relative;
       display: flex;
       flex-direction: column;
       background-color: #212121;
 
+      &.expand {
+        width: 185px;
+        padding: 0 30px;
+        transition: all 300ms ease;
+        .menu-item {
+          justify-content: flex-start;
+          transition: all 300ms ease;
+
+          a {
+            white-space: nowrap;
+            fa {
+              margin-right: 10px;
+              transition: all 300ms ease;
+            }
+            span {
+              display: inline-block;
+              opacity: 1;
+              animation-name: fadeInOpacity;
+              animation-iteration-count: 1;
+              animation-timing-function: ease-in;
+              animation-duration: 1s;
+              animation-fill-mode: forwards;
+            }
+            @keyframes fadeInOpacity {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+
+              }
+            }
+          }
+        }
+      }
+
+      &.contract {
+        transition: all 300ms ease;
+
+        .menu-item {
+          transition: all 300ms ease;
+          a {
+            white-space: nowrap;
+            fa {
+              transition: all 300ms ease;
+            }
+          }
+        }
+      }
+
       .menu-item {
-        color: white;
-        margin: 0 auto 50px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
 
         &:first-child {
           margin-top: 50px;
@@ -21,8 +77,12 @@
         a {
           color: white;
 
-          &:visited {
-            color: white;
+          &:hover {
+            opacity: 0.8;
+          }
+
+          span {
+            display: none;
           }
         }
       }
@@ -32,6 +92,10 @@
         .menu-item {
           a {
             fa {
+              display: inline-block;
+              width: 30px;
+              text-align: center;
+
               i {
                 font-size: 25px;
               }
@@ -42,18 +106,28 @@
     }
     .navbar-expander {
       display: flex;
-      flex-direction: column;
-      width: 40px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      right: -25px;
       background: #212121;
-      -moz-border-radius: 0 100px 100px 0;
-      -webkit-border-radius: 0 100px 100px 0;
-      border-radius: 0 100px 100px 0;
+      border-radius: 100%;
+      top: calc(50% - 35px);
+      justify-content: center;
+      align-items: center;
+
+
 
       fa {
-        margin: auto 0 auto 5px;
         font-size: 25px;
         color: white;
+        margin: 0 0 0 20px;
+
+
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
