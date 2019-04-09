@@ -9,6 +9,7 @@ import { NavmenuComponent } from './navmenu/navmenu.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: LandingComponent },
+  { path: '', component: LandingComponent },
   {
     path: '',
     component: NavmenuComponent,
@@ -20,7 +21,6 @@ const routes: Routes = [
     ]
   },
   { path: '**', component: LandingComponent },
-  { path: '', component: LandingComponent }
 ];
 
 @NgModule({
