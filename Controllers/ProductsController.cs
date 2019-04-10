@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using KzStock.Core;
 using KzStock.Models;
 using KzStock.Persistance;
 using KzStock.ViewModels;
@@ -11,19 +12,22 @@ namespace KzStock.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly StockDbContext dbContext;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        public ProductsController(StockDbContext dbContext, IMapper mapper)
+        private readonly IGeneric<Product> productRepo;
+
+        public ProductsController(IUnitOfWork unitOfWork, IMapper mapper, IGeneric<Product> productRepo)
         {
+            this.unitOfWork = unitOfWork;
             this.mapper = mapper;
-            this.dbContext = dbContext;
+            this.productRepo = productRepo;
         }
 
         [HttpGet("api/GetProducts")]
-        public async Task<List<ProductViewModel>> GetProducts()
+        public List<ProductViewModel> GetProducts()
         {
-            var modelList = await dbContext.Products.ToListAsync();
-            return mapper.Map<List<Product>, List<ProductViewModel>>(modelList);
+            var modelList =  productRepo.SelectAll();
+            return mapper.Map<IEnumerable<Product>, List<ProductViewModel>>(modelList);
         }
     }
 }
