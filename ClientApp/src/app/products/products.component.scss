@@ -1,4 +1,42 @@
-:host{
+:host {
   display: flex;
   width: 100%;
+  .products-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: #f9f9f9;
+    flex-direction: column;
+
+    .products-header {
+      background: #397fc6;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+
+      h1 {
+        color: white;
+        text-align: center;
+      }
+    }
+
+    .products-content{
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      align-items: center;
+
+      .products-list{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        ag-grid-angular{
+          height: 70%;
+          width: 565px;
+        }
+      }
+    }
+  }
 }

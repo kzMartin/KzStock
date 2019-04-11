@@ -1,3 +1,14 @@
-<p>
-  products works!
-</p>
+<div class="products-container">
+  <div class="products-header">
+    <h1>Products</h1>
+  </div>
+  <div class="products-content">
+    <div class="products-list">
+        <ag-grid-angular
+        class="ag-theme-balham"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs">
+    </ag-grid-angular>
+    </div>
+  </div>
+</div>
