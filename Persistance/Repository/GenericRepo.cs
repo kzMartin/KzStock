@@ -8,62 +8,49 @@ namespace KzStock.Persistance.Repository
 {
     public class GenericRepo<T> : IGeneric<T> where T : class
     {
-        public StockDbContext Db { get; }
-
-        private DbSet<T> entities;
+        private readonly DbSet<T> _entities;
 
         public GenericRepo(StockDbContext db)
         {
             Db = db;
-            entities = db.Set<T>();
+            _entities = db.Set<T>();
         }
+
+        public StockDbContext Db { get; }
 
         public void Delete(int id)
         {
-            var foundEntity = entities.Find(id);
+            var foundEntity = _entities.Find(id);
             if (foundEntity != null)
-            {
-                entities.Remove(foundEntity);
-            }
+                _entities.Remove(foundEntity);
             else
-            {
                 throw new ArgumentNullException("Entity");
-            }
         }
 
         public void Insert(T obj)
         {
             if (obj != null)
-            {
-
-                entities.Add(obj);
-            }
+                _entities.Add(obj);
             else
-            {
                 throw new ArgumentNullException("Entity");
-            }
         }
 
         public IEnumerable<T> SelectAll()
         {
-            return entities;
+            return _entities;
         }
 
         public async Task<T> SelectById(int id)
         {
-            return await entities.FindAsync(id);
+            return await _entities.FindAsync(id);
         }
 
         public void Update(T obj)
         {
             if (obj != null)
-            {
-                entities.Update(obj);
-            }
+                _entities.Update(obj);
             else
-            {
                 throw new ArgumentNullException("Entity");
-            }
         }
     }
 }
