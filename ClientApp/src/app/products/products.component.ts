@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { Product } from './product';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-products',
@@ -8,19 +8,25 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
   columnDefs = [
-      {headerName: 'Id', field: 'id', sortable: true, filter: true},
-      {headerName: 'Name', field: 'name', sortable: true, filter: true},
-      {headerName: 'Stock', field: 'stock', sortable: true, filter: true},
-      {headerName: 'Unit Price', field: 'unitPrice', sortable: true, filter: true}
+    { headerName: 'Id', field: 'id', sortable: true, filter: true },
+    { headerName: 'Name', field: 'name', sortable: true, filter: true },
+    { headerName: 'Stock', field: 'stock', sortable: true, filter: true },
+    {
+      headerName: 'Unit Price',
+      field: 'unitPrice',
+      sortable: true,
+      filter: true
+    }
   ];
 
-  products: any;
+  products: Product[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
-      this.products = this.http.get('/api/getProducts');
+    this.productService
+      .getProducts()
+      .subscribe(products => (this.products = products));
   }
 }
