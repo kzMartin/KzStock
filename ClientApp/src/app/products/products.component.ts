@@ -8,17 +8,6 @@ import { ProductService } from './product.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  columnDefs = [
-    { headerName: 'Id', field: 'id', sortable: true, filter: true },
-    { headerName: 'Name', field: 'name', sortable: true, filter: true },
-    { headerName: 'Stock', field: 'stock', sortable: true, filter: true },
-    {
-      headerName: 'Unit Price',
-      field: 'unitPrice',
-      sortable: true,
-      filter: true
-    }
-  ];
 
   products: Product[];
 
