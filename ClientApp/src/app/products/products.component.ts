@@ -11,6 +11,13 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
 
+  columns = [
+    { prop: 'Id' },
+    { name: 'Name' },
+    { name: 'UnitPrice' },
+    { name: 'Stock' }
+  ];
+
   constructor(private productService: ProductService) {}
 
   ngOnInit() {

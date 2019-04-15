@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -9,8 +10,7 @@ import { LandingComponent } from './landing/landing.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { ProductsComponent } from './products/products.component';
 import { ReportsComponent } from './reports/reports.component';
-import { AgGridModule } from 'ag-grid-angular';
-import { HttpClientModule } from '@angular/common/http';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     AngularFontAwesomeModule,
-    AgGridModule.withComponents([])
+    NgxDatatableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
