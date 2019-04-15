@@ -10,6 +10,7 @@ import { NavmenuComponent } from './navmenu/navmenu.component';
 import { ProductsComponent } from './products/products.component';
 import { ReportsComponent } from './reports/reports.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     AngularFontAwesomeModule,
     AgGridModule.withComponents([])
   ],

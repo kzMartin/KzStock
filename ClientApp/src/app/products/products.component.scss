@@ -1,6 +1,7 @@
 :host {
   display: flex;
   width: 100%;
+
   .products-container {
     display: flex;
     width: 100%;
@@ -32,9 +33,10 @@
         width: 100%;
         justify-content: center;
         align-items: center;
+
         ag-grid-angular{
           height: 70%;
-          width: 565px;
+          width: 800px;
         }
       }
     }

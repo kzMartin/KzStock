@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-products',
@@ -6,19 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
 
   columnDefs = [
-    { headerName: 'Make', field: 'make' },
-    { headerName: 'Model', field: 'model' },
-    { headerName: 'Price', field: 'price' }
+      {headerName: 'Id', field: 'id', sortable: true, filter: true},
+      {headerName: 'Name', field: 'name', sortable: true, filter: true},
+      {headerName: 'Stock', field: 'stock', sortable: true, filter: true},
+      {headerName: 'Unit Price', field: 'unitPrice', sortable: true, filter: true}
   ];
 
-  rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxter', price: 72000 }
-  ];
+  products: any;
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+      this.products = this.http.get('/api/getProducts');
+  }
 }

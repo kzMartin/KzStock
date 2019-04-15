@@ -4,11 +4,12 @@
   </div>
   <div class="products-content">
     <div class="products-list">
-        <ag-grid-angular
+      <ag-grid-angular
         class="ag-theme-balham"
-        [rowData]="rowData"
-        [columnDefs]="columnDefs">
-    </ag-grid-angular>
+        [rowData]="products | async"
+        [columnDefs]="columnDefs"
+      >
+      </ag-grid-angular>
     </div>
   </div>
 </div>
