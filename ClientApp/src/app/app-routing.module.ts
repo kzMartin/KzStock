@@ -6,6 +6,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { LandingComponent } from "./landing/landing.component";
 import { ReportsComponent } from "./reports/reports.component";
 import { NavmenuComponent } from "./navmenu/navmenu.component";
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   { path: "dashboard", component: LandingComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
     component: NavmenuComponent,
     children: [
       { path: "products", component: ProductsComponent },
+      { path: "product", component: ProductComponent },
       { path: "reports", component: ReportsComponent },
       { path: "employees", component: EmployeesComponent },
       { path: "information", component: InformationComponent }

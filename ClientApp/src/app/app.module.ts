@@ -11,6 +11,7 @@ import { NavmenuComponent } from './navmenu/navmenu.component';
 import { ProductsComponent } from './products/products.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     EmployeesComponent,
     InformationComponent,
     NavmenuComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
