@@ -28,8 +28,7 @@ namespace KzStock
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped(typeof(IGeneric<>), typeof(GenericRepo<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddDbContext<StockDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Default")));
@@ -59,7 +58,7 @@ namespace KzStock
             {
                 routes.MapRoute(
                     "default",
-                    "{controller}/{action=Index}/{id?}");
+                    "api/{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
