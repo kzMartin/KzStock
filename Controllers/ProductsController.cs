@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KzStock.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ProductsController : Controller
     {
         private readonly IMapper _mapper;
@@ -20,14 +22,14 @@ namespace KzStock.Controllers
             _productRepo = productRepo;
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> Get()
         {
             var products = await _productRepo.FindAllAsync();
             return Ok(_mapper.Map<IEnumerable<Product>, List<ProductViewModel>>(products));
         }
 
-        [HttpGet]
+        [HttpGet("get/{id?}")]
         public async Task<IActionResult> Get(int id)
         {
             var product = await _productRepo.FindByConditionAsync(p => p.Id == id);
@@ -40,7 +42,7 @@ namespace KzStock.Controllers
             return Ok(_mapper.Map<Product, ProductViewModel>(product.SingleOrDefault()));
         }
 
-        [HttpPost]
+        [HttpPost("add")]
         public async Task<IActionResult> Create([FromBody] ProductViewModel product)
         {
             if (product == null)
@@ -56,7 +58,7 @@ namespace KzStock.Controllers
             return CreatedAtAction("Create", new { id = newProduct.Id }, _mapper.Map<Product, ProductViewModel>(newProduct));
         }
 
-        [HttpPut]
+        [HttpPut("update")]
         public async Task<IActionResult> Update([FromBody] ProductViewModel product)
         {
             if (product == null)
@@ -71,7 +73,7 @@ namespace KzStock.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")]
         public async Task<IActionResult> Delete(int id)
         {
             var product = await _productRepo.FindByConditionAsync(p => p.Id == id);
