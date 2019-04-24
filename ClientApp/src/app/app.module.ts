@@ -12,7 +12,7 @@ import { ProductsComponent } from './products/products.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ProductComponent } from './product/product.component';
-
+import { FormProductComponent } from './product/form-product/form-product.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { ProductComponent } from './product/product.component';
     InformationComponent,
     NavmenuComponent,
     ProductComponent,
+    FormProductComponent,
   ],
   imports: [
     BrowserModule,

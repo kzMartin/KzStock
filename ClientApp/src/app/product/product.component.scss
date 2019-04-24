@@ -20,5 +20,13 @@
         text-align: center;
       }
     }
+
+    .products-content {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      align-items: center;
+      flex-direction: column;
+    }
   }
 }
