@@ -57,8 +57,8 @@ namespace KzStock
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    "default",
-                    "api/{controller}/{action=Index}/{id?}");
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
