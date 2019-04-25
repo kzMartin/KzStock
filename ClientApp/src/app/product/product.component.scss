@@ -21,12 +21,12 @@
       }
     }
 
-    .products-content {
+    .product-content {
       display: flex;
-      justify-content: center;
       height: 100%;
       align-items: center;
       flex-direction: column;
+      justify-content: center;
     }
   }
 }

@@ -13,6 +13,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ProductComponent } from './product/product.component';
 import { FormProductComponent } from './product/form-product/form-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { FormProductComponent } from './product/form-product/form-product.compon
     InformationComponent,
     NavmenuComponent,
     ProductComponent,
-    FormProductComponent,
+    FormProductComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +33,10 @@ import { FormProductComponent } from './product/form-product/form-product.compon
     HttpClientModule,
     AngularFontAwesomeModule,
     NgxDatatableModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

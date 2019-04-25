@@ -13,7 +13,7 @@ export class ProductService {
     return this.http.get<Product[]>('/api/products/all');
   }
 
-  create(product: Product[]) {
+  create(product: Product) {
     return this.http.post('/api/products/add', product);
   }
 }
