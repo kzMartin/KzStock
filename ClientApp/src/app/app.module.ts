@@ -14,6 +14,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ProductComponent } from './product/product.component';
 import { FormProductComponent } from './product/form-product/form-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InformationComponent,
     NavmenuComponent,
     ProductComponent,
-    FormProductComponent
+    FormProductComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFontAwesomeModule,
     NgxDatatableModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

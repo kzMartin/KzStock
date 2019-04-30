@@ -7,53 +7,56 @@
   <div class="products-content">
     <div class="products-list">
       <div>
-      <input
-        class="filter"
-        type="text"
-        placeholder="Search..."
-        (keyup)="updateFilter($event)"
-      />
-      <ngx-datatable
-        #myTable
-        class="material expandable"
-        [columns]="columns"
-        [columnMode]="'forse'"
-        [headerHeight]="50"
-        [footerHeight]="50"
-        [rowHeight]="50"
-        [limit]="10"
-        [rows]="products"
-      >
-        <ngx-datatable-column
-          name="Name"
-          prop="name"
-          [canAutoResize]="true"
-        ></ngx-datatable-column>
-        <ngx-datatable-column
-          name="UnitPrice"
-          prop="unitPrice"
-          [canAutoResize]="true"
-        ></ngx-datatable-column>
-        <ngx-datatable-column
-          name="Stock"
-          prop="stock"
-          [canAutoResize]="true"
-        ></ngx-datatable-column>
-        <ngx-datatable-column [canAutoResize]="true">
-          <ng-template ngx-datatable-cell-template let-row="row">
-            <a class="btn-edit" (click)="edit(row)"><fa name="pencil"></fa></a>
-            <a class="btn-delete" (click)="delete(row)"
-              ><fa name="times-circle"></fa
-            ></a>
-          </ng-template>
-        </ngx-datatable-column>
-      </ngx-datatable>
-    </div>
+        <input
+          class="filter"
+          type="text"
+          placeholder="Search..."
+          (keyup)="updateFilter($event)"
+        />
+        <ngx-datatable
+          #myTable
+          class="material expandable"
+          [columns]="columns"
+          [columnMode]="'forse'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="50"
+          [limit]="10"
+          [rows]="products"
+        >
+          <ngx-datatable-column
+            name="Name"
+            prop="name"
+            [canAutoResize]="true"
+          ></ngx-datatable-column>
+          <ngx-datatable-column
+            name="UnitPrice"
+            prop="unitPrice"
+            [canAutoResize]="true"
+          ></ngx-datatable-column>
+          <ngx-datatable-column
+            name="Stock"
+            prop="stock"
+            [canAutoResize]="true"
+          ></ngx-datatable-column>
+          <ngx-datatable-column [canAutoResize]="true">
+            <ng-template ngx-datatable-cell-template let-row="row">
+              <a class="btn-edit" (click)="edit(row)"
+                ><fa name="pencil"></fa
+              ></a>
+              <a class="btn-delete" (click)="delete(row)"
+                ><fa name="times-circle"></fa
+              ></a>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
     </div>
     <div class="product-add">
       <a class="btn-add" [routerLink]="['/product']">
         <fa name="plus"></fa>
       </a>
     </div>
+    <app-confirmation-dialog *ngIf="confirmationDialog"></app-confirmation-dialog>
   </div>
 </div>

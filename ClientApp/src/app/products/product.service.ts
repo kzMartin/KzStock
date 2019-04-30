@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './product';
@@ -15,5 +15,11 @@ export class ProductService {
 
   create(product: Product) {
     return this.http.post('/api/products/add', product);
+  }
+
+  delete(id: number) {
+    const httpParams = new HttpParams().set('id', id);
+    const options = { params: httpParams };
+    return this.http.delete('/api/products/delete/', options);
   }
 }

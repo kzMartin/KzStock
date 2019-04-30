@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { DatatableComponent } from '@swimlane/ngx-datatable';
+import { ConfirmationDialogComponent } from './../confirmation-dialog/confirmation-dialog.component';
+import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
 import { ProductService } from './product.service';
 
@@ -9,9 +9,9 @@ import { ProductService } from './product.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
   products: Product[];
   allProducts: Product[];
+  confirmationDialog = false;
 
   columns = [
     { name: 'id' },
@@ -23,6 +23,10 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
+    this.getProducts();
+  }
+
+  getProducts() {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
       this.allProducts = products;
@@ -45,7 +49,12 @@ export class ProductsComponent implements OnInit {
   edit(product: Product) {
     alert('edit works');
   }
+
   delete(product: Product) {
-    alert('delete works');
+    this.confirmationDialog = true;
+      console.log(product.id);
+      this.productService.delete(product.id).subscribe(x => {
+        this.getProducts();
+      });
   }
 }
