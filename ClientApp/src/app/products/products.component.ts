@@ -1,7 +1,7 @@
-import { ConfirmationDialogComponent } from './../confirmation-dialog/confirmation-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
 import { ProductService } from './product.service';
+import { ModalService } from '../modal/modal.service';
 
 @Component({
   selector: 'app-products',
@@ -20,7 +20,12 @@ export class ProductsComponent implements OnInit {
     { name: 'unitPrice' }
   ];
 
-  constructor(private productService: ProductService) {}
+  productDelete: Product;
+
+  constructor(
+    private productService: ProductService,
+    private modalService: ModalService
+  ) {}
 
   ngOnInit() {
     this.getProducts();
@@ -50,11 +55,19 @@ export class ProductsComponent implements OnInit {
     alert('edit works');
   }
 
-  delete(product: Product) {
-    this.confirmationDialog = true;
-      console.log(product.id);
-      this.productService.delete(product.id).subscribe(x => {
-        this.getProducts();
-      });
+  openModal(id: string, product: Product) {
+    this.modalService.open(id);
+    this.productDelete = product;
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
+
+  closeModalAndDelete(id: string) {
+    this.productService.delete(this.productDelete.id).subscribe(x => {
+      this.getProducts();
+      this.modalService.close(id);
+    });
   }
 }

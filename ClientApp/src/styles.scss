@@ -30,6 +30,7 @@ html {
 
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 /**
@@ -401,4 +402,38 @@ ngx-datatable {
   border-radius: 4px;
   background: #fff;
   color: rgba(0, 0, 0, 0.87);
+}
+
+modal-dialog {
+  display: none;
+
+  .modal-btn-confirm {
+    box-sizing: border-box;
+    height: 36px;
+    background: #397fc6;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    padding: 0px 16px;
+    margin: 10px 10px 10px 0px;
+    left: 100%;
+    cursor: pointer;
+  }
+
+  .modal-btn-cancel {
+    box-sizing: border-box;
+    height: 36px;
+    background: rgb(163, 163, 163);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    padding: 0px 16px;
+    margin: 10px 10px 10px 0px;
+    left: 100%;
+    cursor: pointer;
+  }
 }
