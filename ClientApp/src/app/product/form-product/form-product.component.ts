@@ -1,3 +1,4 @@
+import { Product } from './../../products/product';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
@@ -10,13 +11,21 @@ import { ProductService } from 'src/app/products/product.service';
   templateUrl: './form-product.component.html',
   styleUrls: ['./form-product.component.scss']
 })
-export class FormProductComponent {
+export class FormProductComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService
   ) {}
+
+  ngOnInit() {
+    if (this.product.id !== undefined) {
+      this.productService.getProduct(this.product.id).subscribe(product => {
+        this.product = product;
+      });
+    }
+  }
 
   productForm = this.fb.group({
     name: ['', Validators.required],

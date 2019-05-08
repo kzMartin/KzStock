@@ -41,7 +41,7 @@
           ></ngx-datatable-column>
           <ngx-datatable-column [canAutoResize]="true">
             <ng-template ngx-datatable-cell-template let-row="row">
-              <a class="btn-edit" (click)="edit(row)"
+              <a class="btn-edit" [routerLink]="['/product/', row.id]"
                 ><fa name="pencil"></fa
               ></a>
               <a class="btn-delete" (click)="openModal('custom-modal-1', row)"

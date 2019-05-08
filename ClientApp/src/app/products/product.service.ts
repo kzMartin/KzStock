@@ -22,4 +22,8 @@ export class ProductService {
     const options = { params: httpParams };
     return this.http.delete('/api/products/delete/', options);
   }
+
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>('/api/products/get/' + id);
+  }
 }
