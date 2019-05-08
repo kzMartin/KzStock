@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   delete(id: number) {
-    const httpParams = new HttpParams().set('id', id);
+    const httpParams = new HttpParams().set('id', id.toString());
     const options = { params: httpParams };
     return this.http.delete('/api/products/delete/', options);
   }
