@@ -8,7 +8,7 @@ import { Product } from 'src/app/products/product';
 @Component({
   selector: 'app-form-product-edit',
   templateUrl: './form-product-edit.component.html',
-  styleUrls: ['../form-product/form-product.component.scss']
+  styleUrls: ['../form-product-add/form-product.component.scss']
 })
 export class FormProductEditComponent implements OnInit {
   constructor(
