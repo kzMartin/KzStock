@@ -1,6 +1,7 @@
 <div class="card">
   <div class="headerCard">
     Product
+    <fa name="archive"></fa>
   </div>
   <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -84,6 +85,6 @@
         Stock is required.
       </div>
     </div>
-    <button type="submit" [disabled]="!productForm.valid">Submit</button>
+    <button type="submit" [disabled]="!productForm.valid">Save</button>
   </form>
 </div>

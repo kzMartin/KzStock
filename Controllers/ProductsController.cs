@@ -67,7 +67,7 @@ namespace KzStock.Controllers
             }
 
             var previousProduct = _mapper.Map<ProductViewModel, Product>(product);
-            _productRepo.Create(previousProduct);
+            _productRepo.Update(previousProduct);
             await _productRepo.SaveAsync();
 
             return NoContent();
