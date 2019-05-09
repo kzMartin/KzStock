@@ -16,6 +16,9 @@ import { FormProductComponent } from './products/form-product-add/form-product.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { FormProductEditComponent } from './products/form-product-edit/form-product-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { FormProductEditComponent } from './products/form-product-edit/form-prod
     NgxDatatableModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

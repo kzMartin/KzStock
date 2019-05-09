@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Product } from './product';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,12 @@ export class ProductService {
   }
 
   update(product: Product) {
-    return this.http.put('/api/products/update', product);
+    return this.http.put('/api/products/update', product).pipe(catchError(error => {
+      console.log(error);
+      if (error.status == 400) {
+      }
+      this.errorHandlerService(error);
+      return throwError(error);
+    }));
   }
 }

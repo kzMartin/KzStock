@@ -8,5 +8,8 @@
   <div class="product-content">
     <app-form-product *ngIf="!isExist"></app-form-product>
     <app-form-product-edit *ngIf="isExist"></app-form-product-edit>
+    <button (click)="showToaster()">
+      Show Toaster
+  </button>
   </div>
 </div>

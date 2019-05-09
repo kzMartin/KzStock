@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationStrategy } from '@angular/common';
+import { NotificationService } from 'src/app/notifications/notification.service';
 
 @Component({
   selector: 'app-product',
@@ -7,7 +8,7 @@ import { LocationStrategy } from '@angular/common';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  constructor(private url: LocationStrategy) {}
+  constructor(private url: LocationStrategy, private notifyService : NotificationService) {}
 
   isExist = false;
 
@@ -17,5 +18,9 @@ export class ProductComponent implements OnInit {
     } else {
       this.isExist = true;
     }
+  }
+
+  showToaster() {
+    this.notifyService.showSuccess("Data shown successfully !!", "Notification")
   }
 }
