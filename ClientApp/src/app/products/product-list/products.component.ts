@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { ModalService } from '../../modal/modal.service';
+import { NotificationService } from 'src/app/notifications/notification.service';
 
 @Component({
   selector: 'app-products',
@@ -24,7 +25,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private notifyService: NotificationService
   ) {}
 
   ngOnInit() {
@@ -51,9 +53,6 @@ export class ProductsComponent implements OnInit {
       this.products = this.allProducts;
     }
   }
-  edit(product: Product) {
-    alert('edit works');
-  }
 
   openModal(id: string, product: Product) {
     this.modalService.open(id);
@@ -66,6 +65,7 @@ export class ProductsComponent implements OnInit {
 
   closeModalAndDelete(id: string) {
     this.productService.delete(this.productDelete.id).subscribe(x => {
+      this.notifyService.showInfo('Product ' + this.productDelete.name + ' was delete', 'Information');
       this.getProducts();
       this.modalService.close(id);
     });

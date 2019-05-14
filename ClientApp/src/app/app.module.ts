@@ -18,6 +18,7 @@ import { ModalComponent } from './modal/modal.component';
 import { FormProductEditComponent } from './products/form-product-edit/form-product-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormProductComponent,
     ModalComponent,
     FormProductEditComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

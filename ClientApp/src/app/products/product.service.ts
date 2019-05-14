@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from './../error-handler.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -8,14 +9,22 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private errorHandler: ErrorHandlerService
+  ) {}
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('/api/products/all');
   }
 
   create(product: Product) {
-    return this.http.post('/api/products/add', product);
+    return this.http.post('/api/products/add', product).pipe(
+      catchError(error => {
+        this.errorHandler.errorHandlerAdd(error.status, product);
+        return throwError(error.status);
+      })
+    );
   }
 
   delete(id: number) {
@@ -29,12 +38,11 @@ export class ProductService {
   }
 
   update(product: Product) {
-    return this.http.put('/api/products/update', product).pipe(catchError(error => {
-      console.log(error);
-      if (error.status == 400) {
-      }
-      this.errorHandlerService(error);
-      return throwError(error);
-    }));
+    return this.http.put('/api/products/update', product).pipe(
+      catchError(error => {
+        this.errorHandler.errorHandlerUpdate(error.status, product);
+        return throwError(error);
+      })
+    );
   }
 }

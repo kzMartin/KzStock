@@ -42,9 +42,8 @@ export class FormProductEditComponent implements OnInit {
 
   onSubmit() {
     this.productService.update(this.productForm.value).subscribe(product => {
-      this.notifyService.showSuccess("Product edited successfully !!", "Notification");
+      this.notifyService.showSuccess('Product edited successfully !!', 'Notification');
       this.router.navigate(['/products']);
-      console.log(product);
     });
   }
 }

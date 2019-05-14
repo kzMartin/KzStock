@@ -1,3 +1,4 @@
+import { ErrorComponent } from './error/error.component';
 import { InformationComponent } from './information/information.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { ProductsComponent } from './products/product-list/products.component';
@@ -19,18 +20,18 @@ const routes: Routes = [
       { path: 'product', component: ProductComponent },
       {
         path: 'product/:id',
-        component: ProductComponent,
+        component: ProductComponent
       },
       { path: 'reports', component: ReportsComponent },
       { path: 'employees', component: EmployeesComponent },
       { path: 'information', component: InformationComponent }
     ]
   },
-  { path: '**', component: LandingComponent }
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
