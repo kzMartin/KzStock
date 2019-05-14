@@ -45,7 +45,7 @@ import { ErrorComponent } from './error/error.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({positionClass: 'toast-bottom-center'})
   ],
   providers: [],
   bootstrap: [AppComponent]
