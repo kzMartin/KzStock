@@ -1,6 +1,6 @@
 import { ErrorComponent } from './error/error.component';
 import { InformationComponent } from './information/information.component';
-import { EmployeesComponent } from './employees/employees.component';
+import { EmployeesComponent } from './employees/employee-list/employees.component';
 import { ProductsComponent } from './products/product-list/products.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

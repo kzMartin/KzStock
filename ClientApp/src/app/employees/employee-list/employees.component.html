@@ -1,0 +1,69 @@
+<title>Employees</title>
+
+<div class="employees-container">
+  <div class="employees-header">
+    <h1>Employees</h1>
+  </div>
+  <div class="employees-content">
+    <div class="employees-list">
+      <div>
+        <input
+          class="filter"
+          type="text"
+          placeholder="Search..."
+          (keyup)="updateFilter($event)"
+        />
+        <ngx-datatable
+          #myTable
+          class="material expandable"
+          [columns]="columns"
+          [columnMode]="'forse'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="50"
+          [limit]="10"
+          [rows]="employees"
+        >
+          <ngx-datatable-column
+            name="Name"
+            prop="name"
+            [canAutoResize]="true"
+          ></ngx-datatable-column>
+          <ngx-datatable-column
+            name="LastName"
+            prop="lastName"
+            [canAutoResize]="true"
+          ></ngx-datatable-column>
+          <ngx-datatable-column
+            name="Email"
+            prop="email"
+            [canAutoResize]="true"
+            [width]="250"
+          ></ngx-datatable-column>
+          <ngx-datatable-column
+            name="Enabled"
+            prop="enabled"
+            [canAutoResize]="true"
+          >
+            <ng-template ngx-datatable-cell-template let-row="row">
+              <div class="tg-list-item">
+                <input
+                  class="tgl tgl-light"
+                  [id]="row.id"
+                  type="checkbox"
+                  [checked]="row.enabled"
+                />
+                <label class="tgl-btn" [for]="row.id"></label>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+    <div class="employee-add">
+      <a class="btn-add" [routerLink]="['/employee']">
+        <fa name="plus"></fa>
+      </a>
+    </div>
+  </div>
+</div>

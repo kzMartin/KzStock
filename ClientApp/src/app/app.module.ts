@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeesComponent } from './employees/employees.component';
+import { EmployeesComponent } from './employees/employee-list/employees.component';
 import { InformationComponent } from './information/information.component';
 import { LandingComponent } from './landing/landing.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
