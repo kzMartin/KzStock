@@ -32,7 +32,6 @@ namespace KzStock
 
             services.AddDbContext<StockDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Default")));
-
             services.AddAutoMapper();
         }
 
@@ -57,8 +56,8 @@ namespace KzStock
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
