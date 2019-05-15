@@ -11,7 +11,7 @@ namespace KzStock.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : Controller
+    public class ProductsController : ControllerBase
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Product> _productRepo;

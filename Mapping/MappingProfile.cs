@@ -9,6 +9,7 @@ namespace KzStock.Mapping
         public MappingProfile()
         {
             CreateMap<Product, ProductViewModel>();
+            CreateMap<Employee, EmployeeViewModel>();
         }
     }
 }
