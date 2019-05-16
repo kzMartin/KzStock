@@ -26,6 +26,7 @@ export class FormProductComponent {
   });
 
   onSubmit() {
+    console.log(this.productForm.value);
     this.productService.create(this.productForm.value).subscribe(product => {
       this.notifyService.showSuccess('Product added successfully !!', 'Notification');
       this.router.navigate(['/products']);

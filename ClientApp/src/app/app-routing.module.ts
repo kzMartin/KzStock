@@ -8,6 +8,7 @@ import { LandingComponent } from './landing/landing.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { ProductComponent } from './products/product-view/product.component';
+import { EmployeeComponent } from './employees/employee-view/employee.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: LandingComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
       },
       { path: 'reports', component: ReportsComponent },
       { path: 'employees', component: EmployeesComponent },
+      { path: 'employee', component: EmployeeComponent },
       { path: 'information', component: InformationComponent }
     ]
   },

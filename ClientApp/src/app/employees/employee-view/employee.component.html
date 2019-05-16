@@ -1,0 +1,12 @@
+<title>Employee</title>
+
+<div class="employee-container">
+  <div class="employee-header">
+    <h1 *ngIf="!isExist">Add Employee</h1>
+    <h1 *ngIf="isExist">Edit Employee</h1>
+  </div>
+  <div class="employee-content">
+    <app-form-employee-add *ngIf="!isExist"></app-form-employee-add>
+    <!-- <app-form-employee-edit *ngIf="isExist"></app-form-employee-edit> -->
+  </div>
+</div>

@@ -19,7 +19,8 @@ import { FormProductEditComponent } from './products/form-product-edit/form-prod
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorComponent } from './error/error.component';
-
+import { EmployeeComponent } from './employees/employee-view/employee.component';
+import { FormEmployeeAddComponent } from './employees/form-employee-add/form-employee-add.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { ErrorComponent } from './error/error.component';
     ModalComponent,
     FormProductEditComponent,
     ErrorComponent,
+    EmployeeComponent,
+    FormEmployeeAddComponent,
   ],
   imports: [
     BrowserModule,

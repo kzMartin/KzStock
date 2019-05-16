@@ -57,6 +57,16 @@
               </div>
             </ng-template>
           </ngx-datatable-column>
+          <ngx-datatable-column [canAutoResize]="true">
+            <ng-template ngx-datatable-cell-template let-row="row">
+              <a class="btn-edit" [routerLink]="['/employee/', row.id]"
+                ><fa name="pencil"></fa
+              ></a>
+              <a class="btn-delete"
+                ><fa name="times-circle"></fa
+              ></a>
+            </ng-template>
+          </ngx-datatable-column>
         </ngx-datatable>
       </div>
     </div>

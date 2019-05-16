@@ -1,0 +1,42 @@
+:host {
+  .headerCard{
+    color: rgb(163, 163, 163)
+  }
+  form {
+    .form-group {
+      .input {
+        height: 36px;
+        width: 500px;
+        padding-left: 5px;
+        margin: 10px 0px 1px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+
+      }
+    }
+    .alert-message {
+      color: red;
+      font-size: 12px;
+    }
+    button {
+      box-sizing: border-box;
+      height: 36px;
+      background: #397fc6;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      color: white;
+      border-radius: 5px;
+      padding: 0px 16px;
+      margin: 10px 0px;
+    }
+
+    button:disabled {
+      background: rgba(#397fc6, 0.5);
+      cursor: auto;
+    }
+  }
+}
