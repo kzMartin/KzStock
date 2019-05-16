@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/products/product.service';
 import { Product } from 'src/app/products/product';
+import { NotificationService } from 'src/app/notifications/notification.service';
 
 @Component({
   selector: 'app-form-product-edit',
@@ -15,7 +16,8 @@ export class FormProductEditComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductService
+    private productService: ProductService,
+    private notifyService: NotificationService
   ) {}
 
   productForm = this.fb.group({
@@ -40,6 +42,7 @@ export class FormProductEditComponent implements OnInit {
 
   onSubmit() {
     this.productService.update(this.productForm.value).subscribe(product => {
+      this.notifyService.showSuccess('Product edited successfully !!', 'Notification');
       this.router.navigate(['/products']);
     });
   }

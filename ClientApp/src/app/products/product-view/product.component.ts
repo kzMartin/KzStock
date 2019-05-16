@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationStrategy } from '@angular/common';
-
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',

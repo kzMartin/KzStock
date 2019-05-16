@@ -1,0 +1,89 @@
+<div class="card">
+  <div class="headerCard">
+    Employee
+    <fa name="user"></fa>
+  </div>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input
+        name="name"
+        id="name"
+        type="text"
+        formControlName="name"
+        class="input"
+        placeholder="Name"
+      />
+    </div>
+    <div
+      *ngIf="
+        employeeForm.controls['name'].invalid &&
+        (employeeForm.controls['name'].dirty ||
+          employeeForm.controls['name'].touched)
+      "
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="employeeForm.controls['name'].errors.required"
+        class="alert-message"
+      >
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        name="lastName"
+        class="input"
+        type="text"
+        formControlName="lastName"
+        placeholder="Last Name"
+      />
+    </div>
+    <div
+      *ngIf="
+        employeeForm.controls['lastName'].invalid &&
+        (employeeForm.controls['lastName'].dirty ||
+          employeeForm.controls['lastName'].touched)
+      "
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="employeeForm.controls['lastName'].errors.required"
+        class="alert-message"
+      >
+        Last name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        name="email"
+        class="input"
+        type="text"
+        formControlName="email"
+        placeholder="Email"
+        pattern="^\w+([\.-]?\w+)*@\w+(\k)*(\.\w{3})+$"
+      />
+    </div>
+    <div
+      *ngIf="
+        employeeForm.controls['email'].invalid &&
+        (employeeForm.controls['email'].dirty ||
+          employeeForm.controls['email'].touched)
+      "
+    >
+      <div
+        *ngIf="employeeForm.controls['email'].errors.pattern"
+        class="alert-message"
+      >
+        Invalid Email
+      </div>
+      <div
+        *ngIf="employeeForm.controls['email'].errors.required"
+        class="alert-message"
+      >
+        Email is required.
+      </div>
+    </div>
+    <button type="submit" [disabled]="!employeeForm.valid">Save</button>
+  </form>
+</div>
