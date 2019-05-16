@@ -1,6 +1,8 @@
 import { EmployeeService } from './../employee.service';
 import { Employee } from './../employee';
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/modal/modal.service';
+import { NotificationService } from 'src/app/notifications/notification.service';
 
 @Component({
   selector: 'app-employees',
@@ -10,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeesComponent implements OnInit {
   employees: Employee[];
   allEmployees: Employee[];
+  employeeDelete: Employee;
+
 
   columns = [
     { name: 'id' },
@@ -19,7 +23,11 @@ export class EmployeesComponent implements OnInit {
     { name: 'enabled' }
   ];
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private modalService: ModalService,
+    private notifyService: NotificationService
+  ) {}
 
   ngOnInit() {
     this.getEmployees();
@@ -44,5 +52,25 @@ export class EmployeesComponent implements OnInit {
     } else {
       this.employees = this.allEmployees;
     }
+  }
+
+  openModal(id: string, employee: Employee) {
+    this.modalService.open(id);
+    this.employeeDelete = employee;
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
+
+  closeModalAndDelete(id: string) {
+    this.employeeService.delete(this.employeeDelete.id).subscribe(x => {
+      this.notifyService.showInfo(
+        'Employee ' + this.employeeDelete.name + ' was delete',
+        'Information'
+      );
+      this.getEmployees();
+      this.modalService.close(id);
+    });
   }
 }

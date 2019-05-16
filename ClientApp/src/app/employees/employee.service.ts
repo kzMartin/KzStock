@@ -1,5 +1,5 @@
 import { Employee } from './employee';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -25,5 +25,11 @@ export class EmployeeService {
         return throwError(error.status);
       })
     );
+  }
+
+  delete(id: number) {
+    const httpParams = new HttpParams().set('id', id.toString());
+    const options = { params: httpParams };
+    return this.http.delete('/api/employees/delete/', options);
   }
 }
