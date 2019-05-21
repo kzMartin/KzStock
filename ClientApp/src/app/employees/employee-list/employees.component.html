@@ -52,6 +52,7 @@
                   [id]="row.id"
                   type="checkbox"
                   [checked]="row.enabled"
+                  (change)="changeState($event, row)"
                 />
                 <label class="tgl-btn" [for]="row.id"></label>
               </div>

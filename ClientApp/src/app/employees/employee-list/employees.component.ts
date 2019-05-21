@@ -14,7 +14,6 @@ export class EmployeesComponent implements OnInit {
   allEmployees: Employee[];
   employeeDelete: Employee;
 
-
   columns = [
     { name: 'id' },
     { name: 'name' },
@@ -42,7 +41,6 @@ export class EmployeesComponent implements OnInit {
 
   updateFilter(event) {
     const val = event.target.value.toLowerCase();
-
     const result = this.allEmployees.filter(product => {
       return product.name.toLowerCase().includes(val);
     });
@@ -71,6 +69,18 @@ export class EmployeesComponent implements OnInit {
       );
       this.getEmployees();
       this.modalService.close(id);
+    });
+  }
+
+  changeState(event, row) {
+    row.enabled = event.target.checked;
+
+    this.employeeService.update(row).subscribe(employee => {
+      if (row.enabled) {
+        this.notifyService.showInfo('Employee enabled', 'Notification');
+      } else {
+        this.notifyService.showInfo('Employee disabled', 'Notification');
+      }
     });
   }
 }
