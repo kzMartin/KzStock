@@ -1,3 +1,27 @@
-<p>
-  reports works!
-</p>
+<title>Reports</title>
+
+<div class="reports-container">
+  <div class="reports-header">
+    <h1>Reports</h1>
+  </div>
+  <div class="reports-content">
+    <div class="reports-list">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <!-- <th>Unit Price</th> -->
+            <th *ngFor="let employees of employees"><span> {{ employees.name }}</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let products of products">
+            <td>{{ products.name }}</td>
+            <!-- <td>{{ products.unitPrice }}</td> -->
+            <td *ngFor="let employees of employees"><input type="text" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
