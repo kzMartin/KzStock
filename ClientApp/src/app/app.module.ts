@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ErrorComponent } from './error/error.component';
 import { EmployeeComponent } from './employees/employee-view/employee.component';
 import { FormEmployeeAddComponent } from './employees/form-employee-add/form-employee-add.component';
+import { FormEmployeeEditComponent } from './employees/form-employee-edit/form-employee-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FormEmployeeAddComponent } from './employees/form-employee-add/form-emp
     ErrorComponent,
     EmployeeComponent,
     FormEmployeeAddComponent,
+    FormEmployeeEditComponent,
   ],
   imports: [
     BrowserModule,

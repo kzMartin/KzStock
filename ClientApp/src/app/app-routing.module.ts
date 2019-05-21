@@ -25,6 +25,10 @@ const routes: Routes = [
       },
       { path: 'reports', component: ReportsComponent },
       { path: 'employees', component: EmployeesComponent },
+      {
+        path: 'employee/:id',
+        component: EmployeeComponent
+      },
       { path: 'employee', component: EmployeeComponent },
       { path: 'information', component: InformationComponent }
     ]

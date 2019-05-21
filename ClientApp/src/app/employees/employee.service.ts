@@ -14,8 +14,13 @@ export class EmployeeService {
     private errorHandler: ErrorHandlerService
   ) {}
 
-  getProducts(): Observable<Employee[]> {
-    return this.http.get<Employee[]>('/api/employees/all');
+  getEmployees(): Observable<Employee[]> {
+    return this.http.get<Employee[]>('/api/employees/all').pipe(
+      catchError(error => {
+        this.errorHandler.errorHandlerGet(error.status);
+        return throwError(error);
+      })
+    );
   }
 
   create(employee: Employee) {
@@ -31,5 +36,23 @@ export class EmployeeService {
     const httpParams = new HttpParams().set('id', id.toString());
     const options = { params: httpParams };
     return this.http.delete('/api/employees/delete/', options);
+  }
+
+  getEmployee(id: number): Observable<Employee> {
+    return this.http.get<Employee>('/api/employees/get/' + id).pipe(
+      catchError(error => {
+        this.errorHandler.errorHandlerGet(error.status);
+        return throwError(error);
+      })
+    );
+  }
+
+  update(employee: Employee) {
+    return this.http.put('/api/employees/update', employee).pipe(
+      catchError(error => {
+        this.errorHandler.errorHandlerUpdate(error.status, employee);
+        return throwError(error);
+      })
+    );
   }
 }
