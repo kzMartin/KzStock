@@ -44,7 +44,7 @@ namespace KzStock.Controllers
             return Ok(_mapper.Map<Employee, EmployeeViewModel>(employee.SingleOrDefault()));
         }
 
-        [HttpGet("get/{email?}")]
+        [HttpGet("getByEmail/{email?}")]
         public async Task<IActionResult> Get(string email)
         {
             var employee = await _employeeRepo.FindByConditionAsync(p => p.Email.ToLower() == email.ToLower());
