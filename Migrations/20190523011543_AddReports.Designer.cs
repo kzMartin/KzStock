@@ -4,14 +4,16 @@ using KzStock.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KzStock.Migrations
 {
     [DbContext(typeof(StockDbContext))]
-    partial class StockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190523011543_AddReports")]
+    partial class AddReports
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,14 +63,6 @@ namespace KzStock.Migrations
                             Enabled = true,
                             LastName = "Detal",
                             Name = "Fulano"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Email = "victor@kzsoftworks.com",
-                            Enabled = true,
-                            LastName = "Pons",
-                            Name = "Victor"
                         });
                 });
 
@@ -134,11 +128,11 @@ namespace KzStock.Migrations
 
                     b.Property<int>("Amount");
 
-                    b.Property<int>("EmployeeId");
+                    b.Property<int?>("EmployeeId");
 
-                    b.Property<int>("ProductId");
+                    b.Property<int?>("ProductId");
 
-                    b.Property<int>("ReportId");
+                    b.Property<int?>("ReportId");
 
                     b.HasKey("Id");
 
@@ -149,80 +143,6 @@ namespace KzStock.Migrations
                     b.HasIndex("ReportId");
 
                     b.ToTable("Purchase");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Amount = 1,
-                            EmployeeId = 1,
-                            ProductId = 1,
-                            ReportId = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Amount = 1000,
-                            EmployeeId = 1,
-                            ProductId = 2,
-                            ReportId = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Amount = 3,
-                            EmployeeId = 1,
-                            ProductId = 3,
-                            ReportId = 0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Amount = 1,
-                            EmployeeId = 4,
-                            ProductId = 3,
-                            ReportId = 0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Amount = 1000,
-                            EmployeeId = 4,
-                            ProductId = 2,
-                            ReportId = 0
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Amount = 3,
-                            EmployeeId = 4,
-                            ProductId = 4,
-                            ReportId = 0
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Amount = 1,
-                            EmployeeId = 2,
-                            ProductId = 2,
-                            ReportId = 0
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Amount = 1000,
-                            EmployeeId = 2,
-                            ProductId = 1,
-                            ReportId = 0
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Amount = 3,
-                            EmployeeId = 2,
-                            ProductId = 3,
-                            ReportId = 0
-                        });
                 });
 
             modelBuilder.Entity("KzStock.Models.Report", b =>
@@ -233,7 +153,7 @@ namespace KzStock.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int>("EmployeeId");
+                    b.Property<int?>("EmployeeId");
 
                     b.Property<bool>("IsPaid");
 
@@ -242,55 +162,28 @@ namespace KzStock.Migrations
                     b.HasIndex("EmployeeId");
 
                     b.ToTable("Reports");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Date = new DateTime(2019, 5, 20, 12, 2, 24, 186, DateTimeKind.Local).AddTicks(9905),
-                            EmployeeId = 1,
-                            IsPaid = false
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Date = new DateTime(2019, 4, 23, 12, 2, 24, 187, DateTimeKind.Local).AddTicks(291),
-                            EmployeeId = 4,
-                            IsPaid = false
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Date = new DateTime(2018, 7, 27, 12, 2, 24, 187, DateTimeKind.Local).AddTicks(296),
-                            EmployeeId = 2,
-                            IsPaid = true
-                        });
                 });
 
             modelBuilder.Entity("KzStock.Models.Purchase", b =>
                 {
                     b.HasOne("KzStock.Models.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EmployeeId");
 
                     b.HasOne("KzStock.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId");
 
                     b.HasOne("KzStock.Models.Report")
                         .WithMany("Purchases")
-                        .HasForeignKey("ReportId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ReportId");
                 });
 
             modelBuilder.Entity("KzStock.Models.Report", b =>
                 {
                     b.HasOne("KzStock.Models.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EmployeeId");
                 });
 #pragma warning restore 612, 618
         }
