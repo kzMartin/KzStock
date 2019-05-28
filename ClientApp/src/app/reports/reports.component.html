@@ -6,28 +6,45 @@
   </div>
   <div class="reports-content">
     <div class="reports-list">
-      <input
-        class="filter"
-        type="text"
-        placeholder="Search..."
-        (keyup)="updateFilter($event)"
-      />
+      <div class="options">
+        <input
+          class="filter"
+          type="text"
+          placeholder="Search..."
+          (keyup)="updateFilter($event)"
+        />
+        <ejs-datepicker
+          format="MM-yyyy"
+          [value]="dateValue"
+          start="Decade"
+          depth="Year"
+          placeholder="Enter date"
+        ></ejs-datepicker>
+      </div>
       <table class="table-fill">
         <thead>
           <tr>
             <th class="text-left">Product Name</th>
             <th class="text-left">Product Unit Price</th>
-            <th class="text-left" *ngFor="let employees of employees">
+            <th class="text-center" *ngFor="let employees of employees">
               <span> {{ employees.name }}</span>
             </th>
           </tr>
         </thead>
         <tbody class="table-hover">
           <tr *ngFor="let products of products">
-            <td class="text-left"><span>{{ products.name }}</span></td>
-            <td class="text-left"><span>{{ products.unitPrice }}</span></td>
+            <td class="text-left">
+              <span>{{ products.name }}</span>
+            </td>
+            <td class="text-left">
+              <span>{{ products.unitPrice }}</span>
+            </td>
             <td class="text-left" *ngFor="let employees of employees">
-              <input type="number" min="0" id={{employees.id}}/>
+              <input
+                type="number"
+                min="0"
+                id="{{ employees.id }}"
+              />
             </td>
           </tr>
           <tr>

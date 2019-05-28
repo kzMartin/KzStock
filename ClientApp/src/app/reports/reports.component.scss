@@ -36,18 +36,37 @@
         align-items: center;
         flex-direction: column;
 
-        .filter {
-          padding: 12px 20px 12px 40px;
-          margin: 15px auto;
+        .options {
           width: 80%;
-          box-sizing: border-box;
-          border: 2px solid #ccc;
-          border-radius: 4px;
-          font-size: 16px;
-          background-color: white;
-          background-image: url('https://www.w3schools.com/css/searchicon.png');
-          background-position: 10px 10px;
-          background-repeat: no-repeat;
+          display: flex;
+
+          .filter {
+            padding: 12px 20px 12px 40px;
+            margin: 15px auto;
+            box-sizing: border-box;
+            border-bottom: 2px solid #ccc;
+            font-size: 16px;
+            background-image: url('https://www.w3schools.com/css/searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            outline: none;
+          }
+          .filter:focus {
+            border-bottom: 2px solid #397fc6;
+          }
+
+          ejs-datepicker {
+            margin: 28px 0 0 15px;
+            width: 20%;
+            display: inline-block;
+
+            .e-date-wrapper{
+              border-bottom: 2px solid #ccc;
+            }
+            .e-date-wrapper:focus{
+              border-bottom: 2px solid #397fc6!important;
+            }
+          }
         }
 
         input {
@@ -151,13 +170,14 @@
         th.text-left {
           text-align: left;
           white-space: nowrap;
-          // span {
-          //   writing-mode: vertical-rl;
-          // }
         }
 
         th.text-center {
           text-align: center;
+          white-space: nowrap;
+          span {
+            writing-mode: vertical-rl;
+          }
         }
 
         th.text-right {

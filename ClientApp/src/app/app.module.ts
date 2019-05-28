@@ -22,6 +22,8 @@ import { ErrorComponent } from './error/error.component';
 import { EmployeeComponent } from './employees/employee-view/employee.component';
 import { FormEmployeeAddComponent } from './employees/form-employee-add/form-employee-add.component';
 import { FormEmployeeEditComponent } from './employees/form-employee-edit/form-employee-edit.component';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { FormEmployeeEditComponent } from './employees/form-employee-edit/form-e
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({positionClass: 'toast-bottom-center'})
+    ToastrModule.forRoot({positionClass: 'toast-bottom-center'}),
+    DatePickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

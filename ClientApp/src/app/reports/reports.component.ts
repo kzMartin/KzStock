@@ -10,16 +10,17 @@ import { Employee } from '../employees/employee';
   styleUrls: ['./reports.component.scss']
 })
 export class ReportsComponent implements OnInit {
-
+  dateValue = new Date();
   employees: Employee[];
   products: Product[];
   allEmployees: Employee[];
 
-  columns = [
-    { name: 'name' },
-  ];
+  columns = [{ name: 'name' }];
 
-  constructor(private productService: ProductService, private employeeService: EmployeeService) {}
+  constructor(
+    private productService: ProductService,
+    private employeeService: EmployeeService
+  ) {}
 
   ngOnInit() {
     this.getProducts();
