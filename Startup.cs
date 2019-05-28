@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NJsonSchema;
+using NSwag.AspNetCore;
 
 namespace KzStock
 {
@@ -33,6 +35,7 @@ namespace KzStock
             services.AddDbContext<StockDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddAutoMapper();
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +55,9 @@ namespace KzStock
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            // Register swagger UI
+            app.UseSwagger();
+            app.UseSwaggerUi3();
 
             app.UseMvc(routes =>
             {
