@@ -13,6 +13,7 @@ export class ReportsComponent implements OnInit {
 
   employees: Employee[];
   products: Product[];
+  allEmployees: Employee[];
 
   columns = [
     { name: 'name' },
@@ -34,6 +35,21 @@ export class ReportsComponent implements OnInit {
   getEmployees() {
     this.employeeService.getEmployees().subscribe(employees => {
       this.employees = employees;
+      this.allEmployees = employees;
     });
+  }
+
+  updateFilter(event) {
+    const val = event.target.value.toLowerCase();
+
+    const result = this.allEmployees.filter(employee => {
+      return employee.name.toLowerCase().includes(val);
+    });
+
+    if (val !== '') {
+      this.employees = result;
+    } else {
+      this.employees = this.allEmployees;
+    }
   }
 }

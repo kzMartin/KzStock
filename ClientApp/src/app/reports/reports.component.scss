@@ -31,66 +31,174 @@
       .reports-list {
         display: flex;
         height: 80%;
-        width: 95%;
+        width: 100%;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        .table {
-          border: 1px solid grey;
-          border-collapse: collapse;
-          border-spacing: 0;
-          thead {
-            background: lightblue;
-            border-bottom: 1px solid grey;
-            tr {
-              th {
-                padding: 10px 5px;
-                border-left: 1px solid grey;
-                span {
-                  writing-mode: vertical-rl;
-                  white-space: nowrap;
-                }
-              }
-              th:nth-child(1) {
-                text-align: left;
-              }
-            }
-          }
-          tbody {
-            tr {
-              td {
-                padding: 5px;
-                border-left: 1px solid grey;
-                border-bottom: 1px solid grey;
 
-                input {
-                  box-sizing: border-box;
-                  padding: 5px;
-                  width: 100%;
-                  border: 1px solid transparent;
-                  background: transparent;
-                  transition: all 300ms ease;
-                  color: darken(#808080, 10%);
-                  caret-color: darken(#808080, 10%);
-                  &:hover {
-                    border-bottom: 1px solid darken(#20b2aa, 5%);
-                    border-left: 1px solid darken(#20b2aa, 5%);
-                    -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
-                    -moz-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
-                    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
-                  }
-                  &:focus {
-                    outline: none;
-                    border-top: 1px solid darken(#20b2aa, 5%);
-                    border-right: 1px solid darken(#20b2aa, 5%);
-                    border-bottom: 1px solid darken(#20b2aa, 5%);
-                    border-left: 1px solid darken(#20b2aa, 5%);
-                    -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
-                    -moz-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
-                    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
-                  }
-                }
-              }
+        .filter {
+          padding: 12px 20px 12px 40px;
+          margin: 15px auto;
+          width: 80%;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: white;
+          background-image: url('https://www.w3schools.com/css/searchicon.png');
+          background-position: 10px 10px;
+          background-repeat: no-repeat;
+        }
+
+        input {
+          box-sizing: border-box;
+          padding: 5px;
+          width: 100%;
+          border: 1px solid transparent;
+          background: transparent;
+          transition: all 300ms ease;
+          color: darken(#808080, 10%);
+          caret-color: darken(#808080, 10%);
+        }
+
+        .table-fill {
+          background: white;
+          border-radius: 3px;
+          border-collapse: collapse;
+          height: 80%;
+          padding: 5px;
+          width: 80%;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          animation: float 5s infinite;
+        }
+
+        th {
+          color: #d5dde5;
+          background: #1b1e24;
+          border-bottom: 4px solid #9ea7af;
+          border-right: 1px solid #343a45;
+          font-size: 16px;
+          font-weight: 100;
+          padding: 10px;
+          text-align: left;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+          vertical-align: middle;
+        }
+
+        th:first-child {
+          border-top-left-radius: 3px;
+        }
+
+        th:last-child {
+          border-top-right-radius: 3px;
+          border-right: none;
+        }
+
+        tr {
+          border-top: 1px solid #c1c3d1;
+          border-bottom: 1px solid #c1c3d1;
+          color: #666b85;
+          font-weight: normal;
+          text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+        }
+
+        tr:first-child {
+          border-top: none;
+        }
+
+        tr:last-child {
+          border-bottom: none;
+          border-top: 2px solid #6e6e70;
+        }
+
+        tr:nth-child(odd) td {
+          background: #ebebeb;
+        }
+
+        tr:last-child td:first-child {
+          border-bottom-left-radius: 3px;
+          font-weight: bold;
+          color: #6e6e70;
+        }
+
+        tr:last-child td:last-child {
+          border-bottom-right-radius: 3px;
+        }
+
+        td {
+          background: #ffffff;
+          padding: 10px;
+          text-align: left;
+          vertical-align: middle;
+          font-weight: 300;
+          text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+          border-right: 1px solid #c1c3d1;
+
+          input:hover {
+            border-bottom: 2px solid darken(#397fc6, 5%);
+          }
+
+          input:focus {
+            outline: none;
+            border-bottom: 2px solid darken(#397fc6, 5%);
+          }
+        }
+
+        td:last-child {
+          border-right: 0px;
+        }
+
+        th.text-left {
+          text-align: left;
+          white-space: nowrap;
+          // span {
+          //   writing-mode: vertical-rl;
+          // }
+        }
+
+        th.text-center {
+          text-align: center;
+        }
+
+        th.text-right {
+          text-align: right;
+        }
+
+        td.text-left {
+          text-align: left;
+        }
+
+        td.text-center {
+          text-align: center;
+        }
+
+        td.text-right {
+          text-align: right;
+        }
+      }
+      .reports-options {
+        display: flex;
+        height: 20%;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0px 50px;
+
+        .btn-share {
+          display: flex;
+          width: 70px;
+          height: 70px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100%;
+          background: #397fc6;
+
+          fa {
+            font-size: 25px;
+            color: white;
+
+            &:hover {
+              cursor: pointer;
             }
           }
         }

@@ -6,22 +6,44 @@
   </div>
   <div class="reports-content">
     <div class="reports-list">
-      <table class="table">
+      <input
+        class="filter"
+        type="text"
+        placeholder="Search..."
+        (keyup)="updateFilter($event)"
+      />
+      <table class="table-fill">
         <thead>
           <tr>
-            <th>Product Name</th>
-            <!-- <th>Unit Price</th> -->
-            <th *ngFor="let employees of employees"><span> {{ employees.name }}</span></th>
+            <th class="text-left">Product Name</th>
+            <th class="text-left">Product Unit Price</th>
+            <th class="text-left" *ngFor="let employees of employees">
+              <span> {{ employees.name }}</span>
+            </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="table-hover">
           <tr *ngFor="let products of products">
-            <td>{{ products.name }}</td>
-            <!-- <td>{{ products.unitPrice }}</td> -->
-            <td *ngFor="let employees of employees"><input type="text" /></td>
+            <td class="text-left"><span>{{ products.name }}</span></td>
+            <td class="text-left"><span>{{ products.unitPrice }}</span></td>
+            <td class="text-left" *ngFor="let employees of employees">
+              <input type="number" min="0" id={{employees.id}}/>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-left">Total</td>
+            <td class="text-left">-</td>
+            <td class="text-left" *ngFor="let employees of employees">
+              <label></label>
+            </td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="reports-options">
+      <a class="btn-share">
+        <fa name="share-square"></fa>
+      </a>
     </div>
   </div>
 </div>
