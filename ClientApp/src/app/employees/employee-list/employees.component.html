@@ -6,7 +6,7 @@
   </div>
   <div class="employees-content">
     <div class="employees-list">
-      <div>
+        <div class="list">
         <input
           class="filter"
           type="text"
@@ -23,6 +23,7 @@
           [rowHeight]="50"
           [limit]="10"
           [rows]="employees"
+           [loadingIndicator] = "loadingIndicator"
         >
           <ngx-datatable-column
             name="Name"

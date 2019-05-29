@@ -445,3 +445,12 @@ modal-dialog {
     cursor: pointer;
   }
 }
+
+ngx-datatable {
+  height: 90%;
+
+  datatable-footer {
+    position: fixed;
+    bottom: 0;
+  }
+}

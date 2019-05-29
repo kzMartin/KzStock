@@ -13,6 +13,7 @@ export class ProductsComponent implements OnInit {
   products: Product[];
   allProducts: Product[];
   confirmationDialog = false;
+  loadingIndicator = true;
 
   columns = [
     { name: 'id' },
@@ -35,6 +36,7 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     this.productService.getProducts().subscribe(products => {
+      this.loadingIndicator = false;
       this.products = products;
       this.allProducts = products;
     });

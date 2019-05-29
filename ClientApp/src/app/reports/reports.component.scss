@@ -31,13 +31,13 @@
       .reports-list {
         display: flex;
         height: 80%;
-        width: 100%;
+        width: 90%;
         justify-content: center;
         align-items: center;
         flex-direction: column;
 
         .options {
-          width: 80%;
+          width: 50%;
           display: flex;
 
           .filter {
@@ -59,12 +59,8 @@
             margin: 28px 0 0 15px;
             width: 20%;
             display: inline-block;
-
-            .e-date-wrapper{
+            .e-date-wrapper {
               border-bottom: 2px solid #ccc;
-            }
-            .e-date-wrapper:focus{
-              border-bottom: 2px solid #397fc6!important;
             }
           }
         }
@@ -86,7 +82,7 @@
           border-collapse: collapse;
           height: 80%;
           padding: 5px;
-          width: 80%;
+          width: 100%;
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
           animation: float 5s infinite;
         }

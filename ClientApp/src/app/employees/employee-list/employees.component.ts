@@ -13,6 +13,7 @@ export class EmployeesComponent implements OnInit {
   employees: Employee[];
   allEmployees: Employee[];
   employeeDelete: Employee;
+  loadingIndicator = true;
 
   columns = [
     { name: 'id' },
@@ -34,6 +35,7 @@ export class EmployeesComponent implements OnInit {
 
   getEmployees() {
     this.employeeService.getEmployees().subscribe(employees => {
+      this.loadingIndicator = false;
       this.employees = employees;
       this.allEmployees = employees;
     });

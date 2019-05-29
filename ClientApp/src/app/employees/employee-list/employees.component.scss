@@ -36,73 +36,83 @@
         align-items: center;
         flex-direction: column;
 
-        .filter {
-          padding: 12px 20px 12px 40px;
-          margin: 15px auto;
-          width: 100%;
-          box-sizing: border-box;
-          border: 2px solid #ccc;
-          border-radius: 4px;
-          font-size: 16px;
-          background-color: white;
-          background-image: url('https://www.w3schools.com/css/searchicon.png');
-          background-position: 10px 10px;
-          background-repeat: no-repeat;
-        }
+        .list {
+          height: 100%;
 
-        .tgl {
-          display: none;
-
-          + .tgl-btn {
-            outline: 0;
-            display: block;
-            width: 4em;
-            height: 2em;
-            position: relative;
-            cursor: pointer;
-            user-select: none;
-            &:after,
-            &:before {
-              position: relative;
-              display: block;
-              content: '';
-              width: 50%;
-              height: 100%;
-            }
-
-            &:after {
-              left: 0;
-            }
-
-            &:before {
-              display: none;
-            }
-          }
-
-          &:checked + .tgl-btn:after {
-            left: 50%;
-          }
-        }
-
-        .tgl-light {
-          + .tgl-btn {
-            background: #f0f0f0;
-            border-radius: 2em;
-            padding: 2px;
+          .filter {
+            background-color: transparent;
+            border: 0px;
+            box-sizing: border-box;
+            border-bottom: 2px solid #ccc;
+            padding: 12px 20px 12px 40px;
+            margin: 15px auto;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-image: url('https://www.w3schools.com/css/searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            outline: none;
             transition: all 0.4s ease;
-            &:after {
-              border-radius: 50%;
-              background: #fff;
-              transition: all 0.2s ease;
+          }
+
+          .filter:focus {
+            border-bottom: 2px solid #397fc6;
+          }
+
+          .tgl {
+            display: none;
+
+            + .tgl-btn {
+              outline: 0;
+              display: block;
+              width: 4em;
+              height: 2em;
+              position: relative;
+              cursor: pointer;
+              user-select: none;
+              &:after,
+              &:before {
+                position: relative;
+                display: block;
+                content: '';
+                width: 50%;
+                height: 100%;
+              }
+
+              &:after {
+                left: 0;
+              }
+
+              &:before {
+                display: none;
+              }
+            }
+
+            &:checked + .tgl-btn:after {
+              left: 50%;
             }
           }
 
-          &:checked + .tgl-btn {
-            background: #9fd6ae;
+          .tgl-light {
+            + .tgl-btn {
+              background: #f0f0f0;
+              border-radius: 2em;
+              padding: 2px;
+              transition: all 0.4s ease;
+              &:after {
+                border-radius: 50%;
+                background: #fff;
+                transition: all 0.2s ease;
+              }
+            }
+
+            &:checked + .tgl-btn {
+              background: #9fd6ae;
+            }
           }
         }
       }
-
       .employee-add {
         display: flex;
         height: 20%;
