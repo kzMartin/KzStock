@@ -38,7 +38,7 @@ html {
 
 body {
   margin: 0;
-  overflow: hidden;
+  background: #f9f9f9;
 }
 
 /**
@@ -443,14 +443,5 @@ modal-dialog {
     margin: 10px 10px 10px 0px;
     left: 100%;
     cursor: pointer;
-  }
-}
-
-ngx-datatable {
-  height: 90%;
-
-  datatable-footer {
-    position: fixed;
-    bottom: 0;
   }
 }

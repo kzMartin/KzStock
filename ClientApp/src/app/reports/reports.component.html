@@ -7,19 +7,20 @@
   <div class="reports-content">
     <div class="reports-list">
       <div class="options">
-        <input
-          class="filter"
-          type="text"
-          placeholder="Search..."
-          (keyup)="updateFilter($event)"
-        />
         <ejs-datepicker
-          format="MM-yyyy"
+          format="MM/yyyy"
           [value]="dateValue"
           start="Decade"
           depth="Year"
-          placeholder="Enter date"
+          placeholder="MM/yyyy"
         ></ejs-datepicker>
+        <input
+          class="filter"
+          type="text"
+          placeholder="Search name..."
+          (keyup)="updateFilter($event)"
+        />
+        <div class="space"></div>
       </div>
       <table class="table-fill">
         <thead>
@@ -44,6 +45,7 @@
                 type="number"
                 min="0"
                 id="{{ employees.id }}"
+                tabindex="{{ employees.id }}"
               />
             </td>
           </tr>
